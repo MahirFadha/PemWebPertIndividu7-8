@@ -1,0 +1,187 @@
+* {
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+}
+
+.kiri {
+  height: 100%;
+  flex-grow: 4;
+  align-self: center;
+  align-content: center;
+}
+
+.iconX {
+  width: 340px;
+  height: 340px;
+  padding-left: 60px;
+}
+
+.kanan {
+  flex-grow: 4;
+  padding-left: 90px;
+  text-align: left;
+  height: 100%;
+}
+
+.heading {
+  color: white;
+  font-size: 70px;
+  padding-top: 70px;
+  font-weight: 760;
+}
+
+.bergabung {
+  color: white;
+  margin-top: 40px;
+}
+
+.loginGoogle {
+  display: flex;
+  background-color: white;
+  color: white;
+  border-radius: 20px;
+  width: 290px;
+  height: 40px;
+  text-align: left;
+  align-items: center;
+  padding-left: 8px;
+  margin-top: 36px;
+  cursor: pointer;
+  border: transparent;
+}
+
+.loginGoogle img {
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-color: transparent;
+}
+
+.detailGoogle {
+  display: grid;
+  background-color: white;
+}
+
+.detailGoogle h6 {
+  color: rgb(88, 88, 88);
+  background-color: transparent;
+}
+
+.detailGoogle p {
+  font-size: 12px;
+  font-weight: 80;
+  color: rgb(88, 88, 88);
+  background-color: transparent;
+  margin-right: 80px;
+}
+
+.loginApple {
+  display: flex;
+  color: white;
+  background-color: white;
+  width: 290px;
+  height: 40px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.loginApple img {
+  background-color: transparent;
+  height: 24px;
+  width: 24px;
+}
+
+.loginApple p {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+}
+
+.lineContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 290px;
+  color: white;
+  margin-top: 10px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #333;
+}
+
+.lineContainer p {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.buatAkun {
+  background-color: rgb(0, 174, 255);
+  width: 290px;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.buatAkun p {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+}
+
+.ketentuanPrivasi {
+  width: 290px;
+  margin-top: 8px;
+}
+
+.ketentuanPrivasi p {
+  font-size: 11px;
+  color: gray;
+}
+
+.ketentuanPrivasi span {
+  color: rgb(0, 145, 255);
+  cursor: pointer;
+}
+
+.ketentuanPrivasi span:hover {
+  text-decoration-line: underline;
+}
+
+.sudahPunyaAkun {
+  color: white;
+  margin-left: 4px;
+  margin-top: 46px;
+}
+
+.masuk {
+  color: rgb(0, 174, 255);
+  width: 290px;
+  height: 40px;
+  border-radius: 20px;
+  border: white solid 0.2px;
+  text-align: center;
+  align-content: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.masuk p {
+  background-color: transparent;
+  font-weight: 600;
+}
