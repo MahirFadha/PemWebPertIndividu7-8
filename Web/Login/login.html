@@ -16,14 +16,24 @@
       <div class="kanan">
         <h1 class="heading">Sedang tren saat ini</h1>
         <h1 class="bergabung">Bergabunglah sekarang.</h1>
-        <button class="loginGoogle" onclick="location.href='../Profil/index.html'">
+        <form id="loginForm" method="POST" action="jahitan.php">
+          <button type="submit" class="loginGoogle" name="login_button">
+              <img src="Image/bernard.jpg" />
+              <div class="detailGoogle">
+                  <h6>Login sebagai Bernard</h6>
+                  <p>bernardbear@gmail.com</p>
+              </div>
+              <img src="Image/iconGoogle.png" />
+          </button>
+      </form>
+        <!-- <button class="loginGoogle" onclick="showNotificationAndRedirect()" action="jahil.php" method="post">
           <img src="Image/bernard.jpg" />
           <div class="detailGoogle">
-            <h6>Login sebagai Bernard</h6>
-            <p>bernardbear@gmail.com</p>
+              <h6>Login sebagai Bernard</h6>
+              <p>bernardbear@gmail.com</p>
           </div>
           <img src="Image/iconGoogle.png" />
-        </button>
+      </button> -->
         <div class="loginApple">
           <img src="Image/iconApple.png" />
           <p>Daftar dengan Apple</p>
@@ -61,4 +71,49 @@
       </div>
     </div> -->
   </body>
+
+  <script>
+    
+    document.querySelector('.loginGoogle').addEventListener('click', function() {
+        localStorage.setItem("user_email", "bernardbear@gmail.com");
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', showNotificationAndRedirect); 
+
+  function showNotificationAndRedirect() {
+    // Buat elemen notifikasi
+    const notification = document.createElement('div');
+    notification.textContent = 'Login berhasil!';
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.left = '50%';
+    notification.style.transform = 'translateX(-50%)';
+    notification.style.backgroundColor = '#4CAF50';
+    notification.style.color = 'white';
+    notification.style.padding = '15px 25px';
+    notification.style.borderRadius = '5px';
+    notification.style.zIndex = '1000';
+    notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+    notification.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s';
+    
+    document.body.appendChild(notification);
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    setTimeout(() => {
+        window.location.href = '../Profil/profil.html';
+    }, 2000);
+}
+  </script>
 </html>
