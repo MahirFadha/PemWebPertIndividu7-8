@@ -75,15 +75,28 @@
         </div>
 
         <div class="sidebarOption" style="color: white;">
-            <img src="image/iconpost.png" alt="Grok Logo" width="35px" height="35px">
+            <img src="image/iconpost.png" alt="Grok Logo" width="35px" height="35px" onclick="openPost()">
         </div>
 
-        <div class="profil">
-            <img src="image/bernard.jpg" alt="Profil">
+            <div class="profil">
+                <img src="image/bernard.jpg" alt="Profil">
+            </div>
         </div>
-    </div>
     <!-- Sidebar -->
-
+    <div id="overlay" class="modal-overlay">
+        <div class="modal">
+            <header>
+                <span class="title">New Post</span>
+                <button onclick="closePost()" style="background:none;border:none;color:#fff;font-size:1.2em;">✕</button>
+            </header>
+            <main>
+                <textarea id="content" placeholder="Apa yang sedang terjadi?"></textarea>
+            </main>
+            <footer>
+                <button id="postBtn" class="btn-post" disabled>Post</button>
+            </footer>
+        </div>
+        </div>
     <!-- Profil -->
     <div class="profilutama">
         <div class="profilheader">
@@ -115,6 +128,35 @@
             <span>Media</span>
             <span>Likes</span>
         </div>
+
+        <?php
+        // Koneksi ke database
+        $pdo = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', 'Mahir');
+
+        // Query ambil semua post terbaru
+        $stmt = $pdo->query("SELECT username, content, created_at FROM post ORDER BY created_at DESC");
+
+        // Tampilkan satu per satu
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo '<div class="componentPostingan" style="display: flex;padding-left: 20px;padding-right: 20px; padding-top: 14px;border-bottom: 0.2px solid rgb(69, 69, 69)">';
+            echo '<div class="ppPostingan">';
+            echo '<img src="image/bernard.jpg" alt="Foto Profil" style="width: 42px; height: 42px;border-radius: 100px;margin-bottom:40px">';
+            echo '</div>';
+            echo '<div class="postingan" style="padding-left:10px">';
+            echo '<div class="headerPostingan" style="display: flex;  align-items: center; align-content: space-between;">';
+            echo '<strong style="font-size:15px;color: white;">M. Sulthan Mahir Fadha</strong>';
+            echo '<small style="padding-left:4px;font-size:15px;color: gray;">@'.($row['username']).'</small>';
+            echo '<small style="padding-left: 4px;font-size:15px;color: gray">'.($row['created_at']).'</small>';
+            echo '</div>';
+            echo '<div class="midPostingan" style="display: flex;color:white">';
+            echo '<p style="font-size:15px;margin-top:8px">'.($row['content']).'</p>';
+            echo '</div>';
+            echo '<div class="footerPos" style="display: flex;">';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
 
         <div class="rekomendasifollower">
             <h4>Who to Follow</h4>
@@ -214,5 +256,24 @@
     <!-- Last -->
 
 </body>
+<script>
+    const overlay = document.getElementById('overlay');
+    const textarea = document.getElementById('content');
+    const btn = document.getElementById('postBtn');
 
+    function openPost() {
+      overlay.classList.add('active');
+      textarea.focus();
+    }
+
+    function closePost() {
+        overlay.classList.remove('active');
+        textarea.value = '';
+        btn.disabled = true;
+    }
+
+    textarea.addEventListener('input', () => {
+      btn.disabled = textarea.value.trim() === '';
+    });
+</script>
 </html>

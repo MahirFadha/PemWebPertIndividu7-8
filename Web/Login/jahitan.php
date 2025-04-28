@@ -1,4 +1,4 @@
-    <?php
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_button'])) {
     $email = "bernardbear@gmail.com"; // Email statis (atau ambil dari input jika dinamis)
     
