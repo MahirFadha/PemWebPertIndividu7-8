@@ -1,3 +1,19 @@
+<?php
+    include "..\koneksi.php";
+
+    if (isset($_POST["post"])) {
+        $username = "mahirfadha";
+        $content = $_POST["content"];
+        $date = date('d/m/Y');
+
+        $query = "INSERT INTO post VALUES ('$username', '$content', $date)";
+        if ($pdo->query($query)) {
+        }else{
+        echo"Sasasaa";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,16 +101,18 @@
     <!-- Sidebar -->
     <div id="overlay" class="modal-overlay">
         <div class="modal">
+            <form action="profil.php" method="POST">
             <header>
                 <span class="title">New Post</span>
                 <button onclick="closePost()" style="background:none;border:none;color:#fff;font-size:1.2em;">✕</button>
             </header>
             <main>
-                <textarea id="content" placeholder="Apa yang sedang terjadi?"></textarea>
+                <textarea id="content" placeholder="Apa yang sedang terjadi?" name="content"></textarea>
             </main>
             <footer>
-                <button id="postBtn" class="btn-post" disabled>Post</button>
-            </footer>
+                    <button id="postBtn" class="btn-post" disabled name="post" type="submit">Post</button>
+                </footer>
+            </form>
         </div>
         </div>
     <!-- Profil -->
@@ -130,8 +148,6 @@
         </div>
 
         <?php
-        // Koneksi ke database
-        $pdo = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', 'Mahir');
 
         // Query ambil semua post terbaru
         $stmt = $pdo->query("SELECT username, content, created_at FROM post ORDER BY created_at DESC");

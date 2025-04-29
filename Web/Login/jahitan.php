@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_button'])) {
     // Simpan ke Cookie (expire dalam 30 hari)
     setcookie("user_email", $email, time() + (86400 * 7), "/");
     sleep(2); // Delay 2 detik
-    header("Location: ../Profil/profil.html");
+    // header("Location: ../Profil/profil.php");
     exit();
     }
 ?>

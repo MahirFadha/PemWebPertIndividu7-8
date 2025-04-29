@@ -25,7 +25,7 @@
               </div>
               <img src="Image/iconGoogle.png" />
           </button>
-      </form>
+        </form>
         <!-- <button class="loginGoogle" onclick="showNotificationAndRedirect()" action="jahil.php" method="post">
           <img src="Image/bernard.jpg" />
           <div class="detailGoogle">
@@ -73,9 +73,10 @@
   </body>
 
   <script>
-    
+
     document.querySelector('.loginGoogle').addEventListener('click', function() {
-        localStorage.setItem("user_email", "bernardbear@gmail.com");
+      const email = this.querySelector('p').textContent 
+        localStorage.setItem("user_email", email);
     });
 
     document.getElementById('loginForm').addEventListener('submit', showNotificationAndRedirect); 
@@ -112,7 +113,7 @@
     document.head.appendChild(style);
     
     setTimeout(() => {
-        window.location.href = '../Profil/profil.html';
+        window.location.href = '../Profil/profil.php';
     }, 2000);
 }
   </script>
